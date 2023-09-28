@@ -1,0 +1,87 @@
+package ANSI_Color;
+
+public class ansiColor {
+    public enum textColor {
+        BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE
+    }
+    public enum bgColor {
+        BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE
+    }
+    public enum reset {
+        t, f
+    }
+    public static int textColorMaker(textColor tcolor){
+        switch (tcolor){
+            case BLACK -> {
+                return 30;
+            }
+            case RED -> {
+                return 91;
+            }
+            case GREEN -> {
+                return 92;
+            }
+            case YELLOW -> {
+                return 93;
+            }
+            case BLUE -> {
+                return 94;
+            }
+            case MAGENTA -> {
+                return 95;
+            }
+            case CYAN -> {
+                return 96;
+            }
+            case WHITE -> {
+                return 97;
+            }
+            default -> {
+                return 0;
+            }
+        }
+    }
+    public static int bgColorMaker(bgColor bgcolor){
+        switch (bgcolor){
+            case BLACK -> {
+                return 40;
+            }
+            case RED -> {
+                return 41;
+            }
+            case GREEN -> {
+                return 42;
+            }
+            case YELLOW -> {
+                return 43;
+            }
+            case BLUE -> {
+                return 44;
+            }
+            case MAGENTA -> {
+                return 45;
+            }
+            case CYAN -> {
+                return 46;
+            }
+            case WHITE -> {
+                return 47;
+            }
+            default -> {
+                return 48;
+            }
+        }
+    }
+    public static void escape(textColor tcolor, bgColor bgcolor, reset boolen, String txt){
+        String textColor = "\u001B[" + textColorMaker(tcolor) + "m";
+        String bgColor = "\u001B[" + bgColorMaker(bgcolor) + "m";
+        String resetSet = "";
+        if (boolen == reset.t){
+            resetSet = "\u001B[0m";
+        }
+        System.out.println(textColor + bgColor +  txt + resetSet);
+    }
+    public static void main(String[] args){
+        escape(textColor.BLACK, bgColor.RED, reset.f, "Guten Tag");
+    }
+}
