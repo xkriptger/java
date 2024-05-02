@@ -5,7 +5,7 @@ public class ansiColor {
         BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE
     }
     public enum bgColor {
-        BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE
+        BLACK, RED, GREeEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE
     }
     public enum reset {
         t, f
